@@ -3,6 +3,10 @@ import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.*;
 
+/**
+ * @author Shivam Shukla
+ *
+ */
 public class BookApp {
 
 	public static void main(String[] args) {
@@ -21,7 +25,7 @@ public class BookApp {
 		at.setDob(1997);
 		at.setName("Shivam");
 			
-		session.save(at);   
+		   
 			
 		Book b = new Book();
 			
@@ -31,11 +35,24 @@ public class BookApp {
 		b.setAuthor("Shivam");
 		b.setPrice(110);
 			
+			
+		Book b2 = new Book();
+		
+		b2.setBid("b2");
+		b2.setName("The_Jury");
+		b2.setGenre("Crime");
+		b2.setAuthor("Shivam");
+		b2.setPrice(110);
+			
+		at.getB().add(b);
+		at.getB().add(b2);
+
+		session.save(at);
 		session.save(b);
-			
-		b.setAt(at);
-		at.setB(b);
-			
+		session.save(b2);
+
+		
+					
 		tr.commit();
 		session.close();
 		

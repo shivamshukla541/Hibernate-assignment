@@ -16,8 +16,7 @@ public class Book {
 	private String author;
 	private float price;
 	
-	@OneToOne
-	private Author at;
+	
 	
 	public String getBid() {
 		return bid;
@@ -25,12 +24,8 @@ public class Book {
 	public void setBid(String bid) {
 		this.bid = bid;
 	}
-	public Author getAt() {
-		return at;
-	}
-	public void setAt(Author at) {
-		this.at = at;
-	}
+	
+	
 	public String getName() {
 		return name;
 	}

@@ -1,5 +1,8 @@
 package com.shivam.books;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,13 +14,15 @@ public class Author {
 	private String name;
 	private int dob;
 	
-	@OneToOne
-	private Book b;
+	@OneToMany
+	@JoinTable(joinColumns=@JoinColumn(name="AuthorID"), inverseJoinColumns=@JoinColumn(name="BookID"))
+	private Collection<Book> b = new ArrayList<Book>();
 	
-	public Book getB() {
+	
+	public Collection<Book> getB() {
 		return b;
 	}
-	public void setB(Book b) {
+	public void setB(Collection<Book> b) {
 		this.b = b;
 	}
 	public String getAid() {
