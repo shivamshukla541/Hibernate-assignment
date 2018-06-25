@@ -1,6 +1,4 @@
 package com.shivam.books;
-import java.util.Scanner;
-
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.*;
@@ -17,45 +15,29 @@ public class BookApp {
 		
 		Transaction tr =  session.beginTransaction();
 		
-		Scanner sc = new Scanner(System.in);
-		for(int i=0;i<10;i++) {
+		Author at = new Author();
 			
-			Author at = new Author();
+		at.setAid("a1");
+		at.setDob(1997);
+		at.setName("Shivam");
 			
-			System.out.println("Enter id for Author "+i);
-			at.setAid(sc.next());
-			System.out.println("Enter Date of Birth for Author "+i);
-			at.setDob(sc.nextInt());
-			System.out.println("Enter Name for Author "+i);
-			at.setName(sc.next());
+		session.save(at);   
 			
-			session.save(at);   
+		Book b = new Book();
 			
-		}
-		
-		for(int i=0;i<10;i++) {
+		b.setBid("b1");
+		b.setName("Lost_Soul");
+		b.setGenre("Philosophical");
+		b.setAuthor("Shivam");
+		b.setPrice(110);
 			
-			Book b = new Book();
+		session.save(b);
 			
-			System.out.println("Enter id for Book "+i);
-			b.setBid(sc.next());
-			System.out.println("Enter name for Book "+i);
-			b.setName(sc.next());
-			System.out.println("Enter genre for Book "+i);
-			b.setGenre(sc.next());
-			System.out.println("Enter author name for Book "+i);
-			b.setAuthor(sc.next());
-			System.out.println("Enter price for Book "+i);
-			b.setPrice(sc.nextFloat());
+		b.setAt(at);
 			
-			session.save(b);
-			
-		}
-		
-		
 		tr.commit();
 		session.close();
-		sf.close();
+		
 	}
 
 }
