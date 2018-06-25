@@ -1,8 +1,5 @@
 package com.shivam.books;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import javax.persistence.*;
 
 
@@ -20,6 +17,7 @@ public class Book {
 	private float price;
 	
 	@ManyToOne
+	@JoinColumn(name="AuthorID")
 	private Author at;
 	
 	
