@@ -16,17 +16,7 @@ public class Book {
 	private String author;
 	private float price;
 	
-	@ManyToOne
-	@JoinColumn(name="AuthorID")
-	private Author at;
 	
-	
-	public Author getAt() {
-		return at;
-	}
-	public void setAt(Author at) {
-		this.at = at;
-	}
 	public String getBid() {
 		return bid;
 	}

@@ -14,7 +14,8 @@ public class Author {
 	private String name;
 	private int dob;
 	
-	@OneToMany(mappedBy="at")
+	@OneToMany
+	@JoinTable(joinColumns=@JoinColumn(name="AuthorID"), inverseJoinColumns=@JoinColumn(name="BookID"))
 	private Collection<Book> b = new ArrayList<Book>();
 	
 	
