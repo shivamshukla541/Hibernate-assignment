@@ -1,5 +1,8 @@
 package com.shivam.books;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.*;
 
 
@@ -16,8 +19,16 @@ public class Book {
 	private String author;
 	private float price;
 	
+	@ManyToOne
+	private Author at;
 	
 	
+	public Author getAt() {
+		return at;
+	}
+	public void setAt(Author at) {
+		this.at = at;
+	}
 	public String getBid() {
 		return bid;
 	}
