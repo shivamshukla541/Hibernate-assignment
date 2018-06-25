@@ -11,6 +11,15 @@ public class Author {
 	private String name;
 	private int dob;
 	
+	@OneToOne
+	private Book b;
+	
+	public Book getB() {
+		return b;
+	}
+	public void setB(Book b) {
+		this.b = b;
+	}
 	public String getAid() {
 		return aid;
 	}

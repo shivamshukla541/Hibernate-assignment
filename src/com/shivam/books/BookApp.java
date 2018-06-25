@@ -34,6 +34,7 @@ public class BookApp {
 		session.save(b);
 			
 		b.setAt(at);
+		at.setB(b);
 			
 		tr.commit();
 		session.close();
