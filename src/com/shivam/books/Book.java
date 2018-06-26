@@ -1,5 +1,8 @@
 package com.shivam.books;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.*;
 
 
@@ -16,15 +19,13 @@ public class Book {
 	private String author;
 	private float price;
 	
-	@ManyToOne
-	@JoinColumn(name="AuthorID")
-	private Author at;
+	@ManyToMany(mappedBy="b")
+	private Collection<Author> at = new ArrayList<Author>();
 	
-	
-	public Author getAt() {
+	public Collection<Author> getAt() {
 		return at;
 	}
-	public void setAt(Author at) {
+	public void setAt(Collection<Author> at) {
 		this.at = at;
 	}
 	public String getBid() {

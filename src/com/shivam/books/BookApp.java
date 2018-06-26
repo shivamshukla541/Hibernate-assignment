@@ -44,8 +44,10 @@ public class BookApp {
 		b2.setAuthor("Shivam");
 		b2.setPrice(110);
 			
-		b.setAt(at);
-		b2.setAt(at);
+		b.getAt().add(at);
+		b2.getAt().add(at);
+		at.getB().add(b);
+		at.getB().add(b2);
 		
 		session.save(at);
 		session.save(b);

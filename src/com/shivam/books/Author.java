@@ -14,6 +14,15 @@ public class Author {
 	private String name;
 	private int dob;
 	
+	@ManyToMany
+	private Collection<Book> b = new ArrayList<Book>();
+	
+	public Collection<Book> getB() {
+		return b;
+	}
+	public void setB(Collection<Book> b) {
+		this.b = b;
+	}
 	public String getAid() {
 		return aid;
 	}
